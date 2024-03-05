@@ -1,0 +1,23 @@
+@use "@Styles/Base" as *;
+
+.folderContainer{
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    padding-top: 30px;
+
+    .mainStructureContainer{
+        width: 320px;
+        height: 60px;
+        background: $bluish-grey;
+        border-radius: 16px;
+        color: $black;
+        font-size: $font-18;
+        font-weight: 600;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+}

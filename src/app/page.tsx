@@ -1,95 +1,63 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+/* //* Packages Import */
+import { useState, createContext, useEffect } from "react";
+
+/* //* Components Import */
+import FolderComponent from "@Components/FolderComponent";
+import BreadCrumb from "@Components/BreadCrumb";
+
+/* //* Data Import */
+import { fileStructure, addParentPointers } from "@Data/data";
+
+/* //* Styles Import */
+import Styles from "@Styles/Homepage.module.scss";
+
+export const AppContext = createContext<{
+  currentFolder: FileNode;
+  setCurrentFolder: React.Dispatch<React.SetStateAction<FileNode>>;
+} | null>(null);
 
 export default function Home() {
+  const [currentFolder, setCurrentFolder] = useState<FileNode>(fileStructure);
+
+  // const handleSort = () => {
+  //   const tempValue=    currentPosition.sort( (firstFolder: any, secondFolder: any) =>
+  //   parseInt(firstFolder.name) - parseInt(secondFolder.name));
+  //   console.log(tempValue);
+
+  //   setcurrentPostion((currentPosition: FileNode) =>
+  //     currentPosition.sort(
+  //       (firstFolder: any, secondFolder: any) =>
+  //         parseInt(firstFolder.name) - parseInt(secondFolder.name)
+  //     )
+  //   );
+  // };
+
+  const appStates = { currentFolder, setCurrentFolder };
+
+  const handleGoBack = () => {
+    setCurrentFolder((currentFolder) => currentFolder.parent || currentFolder);
+  };
+
+  useEffect(() => {
+    fileStructure.child.forEach((childNode) => {
+      addParentPointers(childNode, fileStructure);
+    });
+    setCurrentFolder(fileStructure);
+  }, []);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <AppContext.Provider value={appStates}>
+      <main>
+        <div className={Styles.mainContainer}>
+          <BreadCrumb />
+          <button className={Styles.goBack} onClick={handleGoBack}>
+            {" "}
+            Go back
+          </button>
+          <FolderComponent />
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      </main>
+    </AppContext.Provider>
+  );
 }
