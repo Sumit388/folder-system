@@ -3,7 +3,7 @@ import { useEffect, useContext, useState } from "react";
 import Image from "next/image";
 
 /* //* Utils Import */
-import { AppContext } from "src/app/page";
+import { AppContext } from "@Utils/appContext";
 import { formattedDate, setLocalStorage, sortByNameOrDate } from "@Utils/utils";
 
 /* //* Assets Import */

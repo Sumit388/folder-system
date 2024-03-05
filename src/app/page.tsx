@@ -1,6 +1,6 @@
 "use client";
 /* //* Packages Import */
-import { useState, createContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 /* //* Components Import */
 import FolderComponent from "@Components/FolderComponent";
@@ -10,19 +10,13 @@ import ActivityLog from "@Components/ActivityLog";
 
 /* //* Utils Import */
 import { sortByNameOrDate } from "@Utils/utils";
+import { AppContext } from "@Utils/appContext";
 
 /* //* Data Import */
 import { fileStructure, addParentPointers } from "@Data/data";
 
 /* //* Styles Import */
 import Styles from "@Styles/Homepage.module.scss";
-
-export const AppContext = createContext<{
-  currentFolder: FileNode;
-  setCurrentFolder: React.Dispatch<React.SetStateAction<FileNode>>;
-  sortBy: "name" | "modified";
-  setSortBy: React.Dispatch<React.SetStateAction<"name" | "modified">>;
-} | null>(null);
 
 export default function Home() {
   const [currentFolder, setCurrentFolder] = useState<FileNode>(fileStructure);

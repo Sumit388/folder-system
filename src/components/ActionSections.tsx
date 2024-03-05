@@ -2,7 +2,7 @@
 import { useContext } from "react";
 
 /* //* Utils Import */
-import { AppContext } from "src/app/page";
+import { AppContext } from "@Utils/appContext";
 import { formattedDate, setLocalStorage } from "@Utils/utils";
 
 /* //* Styles Import */

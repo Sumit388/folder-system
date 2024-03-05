@@ -2,7 +2,7 @@
 import { useEffect, useState, useContext } from "react";
 
 /* //* Utils Import */
-import { AppContext } from "src/app/page";
+import { AppContext } from "@Utils/appContext";
 import { getLocalStorage } from "@Utils/utils";
 
 /* //* Styles Import */
