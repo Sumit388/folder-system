@@ -6,6 +6,7 @@ import { useState, createContext, useEffect } from "react";
 import FolderComponent from "@Components/FolderComponent";
 import BreadCrumb from "@Components/BreadCrumb";
 import ActionSections from "@Components/ActionSections";
+import ActivityLog from "@Components/ActivityLog";
 
 /* //* Utils Import */
 import { sortByNameOrDate } from "@Utils/utils";
@@ -49,13 +50,15 @@ export default function Home() {
     <AppContext.Provider value={appStates}>
       <main>
         <div className={Styles.mainContainer}>
+          <h1>File Structure Demo</h1>
           <BreadCrumb />
           <ActionSections />
           <div className={Styles.description}>
             Files & Folders sorted by:{" "}
-            {sortBy === "name" ? "File name" : "File date"}
+            {sortBy === "name" ? "File Name" : "File Date"}
           </div>
           <FolderComponent />
+          <ActivityLog />
         </div>
       </main>
     </AppContext.Provider>

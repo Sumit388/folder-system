@@ -4,7 +4,7 @@ import Image from "next/image";
 
 /* //* Utils Import */
 import { AppContext } from "src/app/page";
-import { sortByNameOrDate } from "@Utils/utils";
+import { formattedDate, setLocalStorage, sortByNameOrDate } from "@Utils/utils";
 
 /* //* Assets Import */
 import chevron from "@Assets/chevron.svg";
@@ -21,6 +21,10 @@ const BreadCrumb = () => {
       ...folder,
       child: sortByNameOrDate(state?.sortBy, folder.child),
     });
+    setLocalStorage(
+      "log",
+      `${formattedDate(new Date())} : Opened ${folder.name}`
+    );
   };
 
   useEffect(() => {

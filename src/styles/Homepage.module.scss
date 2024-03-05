@@ -3,6 +3,10 @@
 .mainContainer{
  @include container();
 
+ h1{
+    padding-top: 30px;
+ }
+
  .description{
     padding-top: 30px;
  }

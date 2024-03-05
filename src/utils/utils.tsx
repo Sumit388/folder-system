@@ -23,3 +23,25 @@ export const sortByNameOrDate = (
   }
   return folderChilds;
 };
+
+export const getLocalStorage = (key: string) =>
+  JSON.parse(window?.localStorage.getItem(key) as string);
+
+export const setLocalStorage = (key: string, value: string) => {
+  const previousValue =
+    JSON.parse(window?.localStorage.getItem(key) as string) || [];
+  previousValue.push(value);
+  window?.localStorage.setItem(key, JSON.stringify(previousValue));
+};
+
+export const formattedDate = (date: Date) => {
+  const hours = date.getHours().toString().padStart(2, "0");
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  const seconds = date.getSeconds().toString().padStart(2, "0");
+
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const year = date.getFullYear().toString().slice(-2);
+
+  return `${hours}:${minutes}:${seconds}, ${day}/${month}/${year}`;
+};

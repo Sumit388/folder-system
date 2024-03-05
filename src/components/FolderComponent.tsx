@@ -4,7 +4,7 @@ import Image from "next/image";
 
 /* //* Utils Import */
 import { AppContext } from "src/app/page";
-import { sortByNameOrDate } from "@Utils/utils";
+import { sortByNameOrDate, formattedDate, setLocalStorage } from "@Utils/utils";
 
 /* //* Assets Import */
 import file from "@Assets/file.svg";
@@ -23,6 +23,11 @@ const FolderComponent = () => {
         ...folder,
         child: sortByNameOrDate(state?.sortBy, folder.child),
       });
+
+    setLocalStorage(
+      "log",
+      `${formattedDate(new Date())} : Opened ${folder.name}`
+    );
   };
 
   return (

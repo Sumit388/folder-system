@@ -1,0 +1,8 @@
+@use "@Styles/Base" as *;
+
+.activityLog{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
