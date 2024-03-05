@@ -5,4 +5,5 @@ type FileNode = {
   key: string;
   child: FileNode[];
   parent: FileNode | null;
+  link?: string;
 };

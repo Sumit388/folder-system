@@ -3,6 +3,7 @@
 .folderContainer{
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
     gap: 30px;
     padding-top: 30px;
 
@@ -19,5 +20,15 @@
         align-items: center;
         padding: 10px 20px;
         cursor: pointer;
+        gap: 20px;
+        position: relative;
+
+        .timeStamp{
+            position: absolute;
+            bottom: 4px;
+            right: 16px;
+            font-size: $font-10;
+            color: $grey;
+        }
     }
 }

@@ -3,14 +3,7 @@
 .mainContainer{
  @include container();
 
- .goBack{
-    width: 120px;
-    height: 40px;
-    border-radius: 8px;
-    border: none;
-    background-color: $black;
-    color: $white;
-    cursor: pointer;
-
+ .description{
+    padding-top: 30px;
  }
 }
