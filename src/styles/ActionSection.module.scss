@@ -4,12 +4,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 30px;
-  
+  gap: 2rem;
+
   .goBack {
-    width: 120px;
-    height: 40px;
-    border-radius: 8px;
+    border-radius: 0.5rem;
+    padding: 0.75rem ;
     border: none;
     background-color: $black;
     color: $white;

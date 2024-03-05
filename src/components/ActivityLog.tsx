@@ -19,10 +19,8 @@ const ActivityLog = () => {
   return (
     <div className={Styles.activityLog}>
       <h2>User Activity Log</h2>
-      {log.map((entry) => (
-        <div className={Styles.logEntry} key={`${entry}`}>
-          {entry}
-        </div>
+      {log?.map((entry) => (
+        <div key={`${entry}`}>{entry}</div>
       ))}
     </div>
   );

@@ -4,29 +4,29 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 30px;
-    padding-top: 30px;
+    gap: 2rem;
+    padding-top: 2rem;
 
     .mainStructureContainer{
-        width: 320px;
-        height: 60px;
+        width: 20rem;
+        height: 3.75rem;
         background: $bluish-grey;
-        border-radius: 16px;
+        border-radius: 1rem;
         color: $black;
         font-size: $font-18;
         font-weight: 600;
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        padding: 10px 20px;
+        padding: 0.625rem 1.25rem;
         cursor: pointer;
-        gap: 20px;
+        gap: 1.25rem;
         position: relative;
 
         .timeStamp{
             position: absolute;
-            bottom: 4px;
-            right: 16px;
+            bottom: 0.25rem;
+            right: 1rem;
             font-size: $font-10;
             color: $grey;
         }

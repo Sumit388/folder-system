@@ -1,16 +1,16 @@
 @use "@Styles/Base" as *;
 
 .breadCrumbContainer{
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
 
     .breadCrumb{
         display: flex;
-        gap: 10px;
+        gap: 1rem;
         justify-content: center;
         align-items: center;
         cursor: pointer;
